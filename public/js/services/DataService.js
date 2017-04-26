@@ -133,14 +133,14 @@ angular.module('DataService', []).factory('dataService', ['$http', '$q', functio
 			});
 	}
 
-	function getLaunches(owner) {
-		return $http({method: 'POST', url: urlBase + '/getLaunches', data: owner})
+	function getLaunches(text) {
+		return $http({method: 'POST', url: urlBase + '/getLaunches', data: text})
 		.then(function (body) {
 			console.log(body);
 			return body;
 		},
 		function (res) {
-			console.log(JSON.stringify(res.data));
+			console.log(" Test " + JSON.stringify(res.data));
 			return $q.reject(res.data);
 		});
 	}

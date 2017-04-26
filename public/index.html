@@ -106,9 +106,13 @@ $(document).on('click','.navbar-collapse.in',function(e) {
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/">Launch!</a>
-                <form class="navbar-brand">
+                <!--<form class="navbar-brand">
 					<input type="text" ng-model="searchText" placeholder="Search..."/>
 					<button class="btn btn-primary" type="button" visibility="hidden"/>
+				</form>-->
+				<form class="navbar-brand" name="searchForm" ng-controller="LaunchesController">
+					 <input type="text" name="search" id="search" ng-model="searchLaunchesText" placeholder="Search..."/>
+					<button class="btn btn-default" type="submit" ng-click="searchLaunches(searchForm.search)"> <span class="glyphicon glyphicon-search"></span> </button>
 				</form>
             </div>
 

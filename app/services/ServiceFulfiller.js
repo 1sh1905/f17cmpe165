@@ -14,6 +14,7 @@ service.createAccount = createAccount;
 service.createProfile = createProfile;
 
 service.getAllLaunches = getAllLaunches;
+service.getLaunches = getLaunches;
 service.createLaunch = createLaunch;
 service.deleteLaunch = deleteLaunch;
 service.updateLaunchInfo = updateLaunchInfo;
@@ -133,6 +134,16 @@ function getAllLaunches() {
 		return result;
 	});
 }
+
+function getLaunches(text) {
+	console.log("In ServiceFulfiller: getLaunches  for %s ", text);
+	return launch.find( { name: text }, function(err, result){
+		if(err) return console.error(err);
+		console.log(result);
+		return result;
+	});
+}
+
 function createLaunch(launchInfo){
 	const tags = launchInfo.tags.split(",")
 	var newLaunch = new launch({
